@@ -2,34 +2,45 @@
 Console.WriteLine("===========");
 Console.WriteLine();
 
-string targetCode = "Console.WriteLine(\"Hello, World!\");";
-int score = 0;
-int totalQuestions = 1;
-int attempts = 0;
-bool isCorrect = false;
-
-Console.WriteLine("Type the statement exactly as shown:");
-Console.WriteLine(targetCode);
-Console.WriteLine();
-
-while (!isCorrect)
+string[] targetCodes =
 {
-    Console.Write("Your attempt: ");
-    string userInput = Console.ReadLine() ?? "";
+    "Console.WriteLine(\"Hello, World!\");",
+    "string language = \"C#\";",
+    "bool isLearning = true;"
+};
 
-    attempts = attempts + 1;
-    isCorrect = userInput == targetCode;
+int score = 0;
+int totalQuestions = targetCodes.Length;
+int totalAttempts = 0;
 
-    if (isCorrect)
+foreach (string currentTargetCode in targetCodes)
+{
+    bool isCorrect = false;
+    Console.WriteLine("Type the statement exactly as shown:");
+    Console.WriteLine(currentTargetCode);
+    Console.WriteLine();
+
+    while (!isCorrect)
     {
-        score = score + 1;
-        Console.WriteLine("Correct!");
-    }
-    else
-    {
-        Console.WriteLine("Incorrect. Try again.");
+        Console.Write("Your attempt: ");
+        string userInput = Console.ReadLine() ?? "";
+
+        totalAttempts = totalAttempts + 1;
+        isCorrect = userInput == currentTargetCode;
+
+        if (isCorrect)
+        {
+            score = score + 1;
+            Console.WriteLine("Correct!");
+            Console.WriteLine();
+        }
+        else
+        {
+            Console.WriteLine("Incorrect. Try again.");
+            Console.WriteLine(currentTargetCode);
+        }
     }
 }
 
 Console.WriteLine($"Score: {score}/{totalQuestions}");
-Console.WriteLine($"Attempts: {attempts}");
+Console.WriteLine($"Total attempts: {totalAttempts}");
