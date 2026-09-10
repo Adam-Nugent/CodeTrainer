@@ -13,9 +13,11 @@ int score = 0;
 int totalQuestions = targetCodes.Length;
 int totalAttempts = 0;
 
-foreach (string currentTargetCode in targetCodes)
+for (int index = 0; index < targetCodes.Length; index++)
 {
+    string currentTargetCode = targetCodes[index];
     bool isCorrect = false;
+    Console.WriteLine($"Exercise {index + 1} of {totalQuestions}");
     Console.WriteLine("Type the statement exactly as shown:");
     Console.WriteLine(currentTargetCode);
     Console.WriteLine();
