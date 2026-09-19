@@ -44,5 +44,9 @@ for (int index = 0; index < targetCodes.Length; index++)
     }
 }
 
+int mistakes = totalAttempts - totalQuestions;
+
+
 Console.WriteLine($"Score: {score}/{totalQuestions}");
 Console.WriteLine($"Total attempts: {totalAttempts}");
+Console.WriteLine($"Mistakes: {mistakes}");
